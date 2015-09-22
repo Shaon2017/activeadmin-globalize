@@ -3,7 +3,7 @@ module ActiveAdmin
     module FormBuilderExtension
       extend ActiveSupport::Concern
 
-      def translated_inputs(name = "Translations", options = {}, &block)
+      def translated_inputs(name = 'Translations', options = {}, &block)
         options.symbolize_keys!
         switch_locale = options.fetch(:switch_locale, false)
         auto_sort = options.fetch(:auto_sort, true)
@@ -13,12 +13,12 @@ module ActiveAdmin
         else
           html = "".html_safe
         end
-        html << template.content_tag(:div, class: "activeadmin-translations") do
-          template.content_tag(:ul, class: "available-locales") do
+        html << template.content_tag(:div, class: 'activeadmin-translations') do
+          template.content_tag(:ul, class: 'available-locales') do
             (auto_sort ? I18n.available_locales.sort : I18n.available_locales).map do |locale|
               template.content_tag(:li) do
                 I18n.with_locale(switch_locale ? locale : I18n.locale) do
-                  template.content_tag(:a, I18n.t(:"active_admin.globalize.language.#{locale}"), href:".locale-#{locale}")
+                  template.content_tag(:a, I18n.t(:"active_admin.globalize.language.#{ locale }"), href:".locale-#{ locale }")
                 end
               end
             end.join.html_safe
@@ -35,7 +35,7 @@ module ActiveAdmin
             end
             inputs_for_nested_attributes(
               for: [:translations, translation ],
-              class: "inputs locale locale-#{translation.locale}",
+              class: "inputs locale locale-#{ translation.locale }",
               &fields
             )
           end.join.html_safe
@@ -47,4 +47,3 @@ module ActiveAdmin
     end
   end
 end
-

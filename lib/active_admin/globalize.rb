@@ -11,4 +11,3 @@ ActiveRecord::Base.send :extend, ActiveAdmin::Globalize::ActiveRecordExtension
 
 ActiveAdmin::FormBuilder.send :include, ActiveAdmin::Globalize::FormBuilderExtension
 ActiveAdmin::Views::IndexAsTable::IndexTableFor.send :include, ActiveAdmin::Globalize::IndexTableFor
-
