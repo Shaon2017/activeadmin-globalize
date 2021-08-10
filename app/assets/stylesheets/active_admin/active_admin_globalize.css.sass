@@ -1,10 +1,5 @@
 @import "active_admin/mixins"
-@mixin border-top-radius($radius) {
-  -webkit-border-top-radius: $radius;
-     -moz-border-top-radius: $radius;
-      -ms-border-top-radius: $radius;
-          border-top-radius: $radius;
-}
+
 .active_admin
   .activeadmin-translations
     margin-bottom: 20px
@@ -33,7 +28,6 @@
           &.active
             background: #f4f4f4
             +inset-shadow(0, 4px, 4px, #ddd)
-            +border-top-radius(4px)
             margin-bottom: 0
             +gradient($secondary-gradient-stop, #f4f4f4)
             text-shadow: 0 1px 0 white
